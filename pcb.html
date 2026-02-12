@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PCB Milling — Lucia Chen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      margin:0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg,#1a2b4a,#7a8ba3,#1a2b4a);
+      color: white;
+      padding: 20px 10px;
+    }
+
+    .wrap{
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1{
+      font-family: "Pinyon Script", cursive;
+      font-size: clamp(34px, 4.2vw, 54px);
+      font-weight: 400;
+      margin: 0 0 10px;
+    }
+
+    p{
+      line-height: 1.6;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .backBtn{
+      display: inline-block;
+      margin-bottom: 25px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: background 0.2s ease;
+    }
+
+    .backBtn:hover{
+      background: rgba(255,255,255,0.15);
+    }
+
+    img{
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin-top: 18px;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    .section{
+      margin-top: 55px;
+    }
+
+    .section h2{
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    .photoGrid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .photoGrid a{
+      display: block;
+      text-decoration: none;
+    }
+
+    .photoGrid img{
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      margin-top: 0; /* grid already handles spacing */
+    }
+
+    .cap{
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <a href="index.html" class="backBtn">← Back to Menu</a>
+
+
+    <!-- Creative Decisions -->
+    <section class="section">
+      <h2>OVERVIEW</h2>
+      <p>
+        <!-- PLACEHOLDER: replace with the decisions you made -->
+        I really enjoyed the open-ended design component of the project. 
+        I first attempted to route the components of my circuit in a neat and condensed way, 
+        so as to frame the shape of my PCB around a visually pleasing shape. Once I completed my trace paths, 
+        I decided I wanted to incorporate the LED light component into the shape. Thus, I came up with an abstract star 
+        outline for my PCB, and I used a yellow LED when soldering to further complement the theme of my project. 
+      </p>
+    </section>
+
+    <!-- Photos -->
+    <section class="section">
+      <!-- <h2>Process + Results</h2>
+      <p class="cap">Click any image to open a page with notes.</p> -->
+
+      <div class="photoGrid">
+        <a href="pcb1.html">
+          <img src="assets/pcb1.jpg" alt="PCB image 1">
+          <!-- <div class="cap">PCB 1 — Placeholder caption</div> -->
+        </a>
+
+        <a href="pcb2.html">
+          <img src="assets/pcb2.jpg" alt="PCB image 2">
+          <!-- <div class="cap">PCB 2 — Placeholder caption</div> -->
+        </a>
+
+        <a href="pcb3.html">
+          <img src="assets/pcb3.jpg" alt="PCB image 3">
+          <!-- <div class="cap">PCB 3 — Placeholder caption</div> -->
+        </a>
+
+        <a href="pcb4.html">
+          <img src="assets/pcb4.jpg" alt="PCB image 4">
+          <!-- <div class="cap">PCB 4 — Placeholder caption</div> -->
+        </a>
+      </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="section">
+      <h2>Reflection</h2>
+      <p>
+        <!-- PLACEHOLDER: replace with your reflection -->
+        Many parts of this project were more difficult than I imagined, which made completing each step feel more rewarding. I didn’t quite understand how to efficiently draw the trace paths at first, resulting in some unnecessary traces before I realized that components could be electrically connected through chains of connections. The soldering was a labor of fixing shorts and overusing the desoldering tool. In the end, I had a blinking star shaped PCB! 
+      </p>
+    </section>
+
+  </div>
+</body>
+</html>
