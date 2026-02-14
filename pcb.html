@@ -24,7 +24,7 @@
     }
 
     h1{
-      font-family: "Pinyon Script", cursive;
+      font-family: "Poppins", sans-serif;
       font-size: clamp(34px, 4.2vw, 54px);
       font-weight: 400;
       margin: 0 0 10px;
@@ -102,7 +102,7 @@
       height: auto;
       display: block;
       object-fit: contain;
-      margin-top: 0; /* grid already handles spacing */
+      margin-top: 0;
     }
 
     .cap{
@@ -111,6 +111,20 @@
       font-weight: 400;
       color: rgba(255,255,255,0.75);
     }
+
+    /* NEW: subtle link style for the repo link */
+    .docLink{
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .docLink:hover{
+      color: white;
+    }
   </style>
 </head>
 
@@ -118,12 +132,24 @@
   <div class="wrap">
     <a href="index.html" class="backBtn">← Back to Menu</a>
 
+    <!-- NEW: Title + link to technical documentation repo -->
+    <section>
+      <!-- TODO: change this title -->
+      <h1>PCB STAR</h1>
 
-    <!-- Creative Decisions -->
+      <p>
+        <!-- TODO: paste your repo URL below -->
+        Technical documentation + design files:
+        <a class="docLink" href="PASTE_YOUR_GITHUB_REPO_LINK_HERE" target="_blank" rel="noopener noreferrer">
+          https://github.com/lucialchen/pcb-pendant.git
+        </a>
+      </p>
+    </section>
+
+    <!-- Overview -->
     <section class="section">
       <h2>OVERVIEW</h2>
       <p>
-        <!-- PLACEHOLDER: replace with the decisions you made -->
         I really enjoyed the open-ended design component of the project. 
         I first attempted to route the components of my circuit in a neat and condensed way, 
         so as to frame the shape of my PCB around a visually pleasing shape. Once I completed my trace paths, 
@@ -134,28 +160,21 @@
 
     <!-- Photos -->
     <section class="section">
-      <!-- <h2>Process + Results</h2>
-      <p class="cap">Click any image to open a page with notes.</p> -->
-
       <div class="photoGrid">
         <a href="pcb1.html">
           <img src="assets/pcb1.jpg" alt="PCB image 1">
-          <!-- <div class="cap">PCB 1 — Placeholder caption</div> -->
         </a>
 
         <a href="pcb2.html">
           <img src="assets/pcb2.jpg" alt="PCB image 2">
-          <!-- <div class="cap">PCB 2 — Placeholder caption</div> -->
         </a>
 
         <a href="pcb3.html">
           <img src="assets/pcb3.jpg" alt="PCB image 3">
-          <!-- <div class="cap">PCB 3 — Placeholder caption</div> -->
         </a>
 
         <a href="pcb4.html">
           <img src="assets/pcb4.jpg" alt="PCB image 4">
-          <!-- <div class="cap">PCB 4 — Placeholder caption</div> -->
         </a>
       </div>
     </section>
@@ -164,8 +183,10 @@
     <section class="section">
       <h2>Reflection</h2>
       <p>
-        <!-- PLACEHOLDER: replace with your reflection -->
-        Many parts of this project were more difficult than I imagined, which made completing each step feel more rewarding. I didn’t quite understand how to efficiently draw the trace paths at first, resulting in some unnecessary traces before I realized that components could be electrically connected through chains of connections. The soldering was a labor of fixing shorts and overusing the desoldering tool. In the end, I had a blinking star shaped PCB! 
+        Many parts of this project were more difficult than I imagined, which made completing each step feel more rewarding. 
+        I didn’t quite understand how to efficiently draw the trace paths at first, resulting in some unnecessary traces before 
+        I realized that components could be electrically connected through chains of connections. The soldering was a labor of 
+        fixing shorts and overusing the desoldering tool. In the end, I had a blinking star shaped PCB! 
       </p>
     </section>
 
