@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ESP Project — Lucia Chen</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <style>
+    body{
+      margin:0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg,#1a2b4a,#7a8ba3,#1a2b4a);
+      color: white;
+      padding: 20px 10px;
+    }
+
+    .wrap{
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1{
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(34px, 4.2vw, 54px);
+      font-weight: 400;
+      margin: 0 0 10px;
+    }
+
+    p{
+      line-height: 1.6;
+      font-weight: 300;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .backBtn{
+      display: inline-block;
+      margin-bottom: 25px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      color: white;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.25);
+      transition: background 0.2s ease;
+    }
+
+    .backBtn:hover{
+      background: rgba(255,255,255,0.15);
+    }
+
+    img{
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      margin-top: 18px;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    .section{
+      margin-top: 55px;
+    }
+
+    .section h2{
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      color: rgba(255,255,255,0.9);
+    }
+
+    /* Video embed container keeps 16:9 ratio */
+    .videoWrap{
+      margin-top: 18px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.25);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      background: rgba(0,0,0,0.25);
+      position: relative;
+      padding-top: 56.25%; /* 16:9 */
+    }
+
+    .videoWrap iframe{
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .photoGrid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); 
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .photoGrid3 img{
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
+      margin-top: 0;
+    }
+
+    @media (max-width: 720px){
+      .photoGrid{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cap{
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .docLink{
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.9);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .docLink:hover{
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <a href="index.html" class="backBtn">← Back to Menu</a>
+
+    <section>
+      <h1>ESP32: Starstuff</h1>
+
+      <p>
+        <!-- Optional: link to repo / documentation -->
+        Technical documentation:
+        <a class="docLink" href="https://github.com/lucialchen/esp32-display.git" target="_blank" rel="noopener noreferrer">
+          https://github.com/lucialchen/esp32-display.git
+        </a>
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>OVERVIEW</h2>
+      <p>
+        Continuing in the vein of receiving inspiration from daily interactions with my friends, my vision for this portfolio project
+        came out of a conversation with a friend I've made in our Creative Embedded Systems class about our first exposures
+        to generative AI art — WOMBO Dream — and how we both felt it created more genuine "art" from our prompts compared to the 
+        more recent text-to-image models since it allowed us to choose a predefined art style. Coincidentally, we had both used the 
+        app to make Spotify playlist covers, and so I decided to make my ESP display a generative aurora borealis modelled off of the 
+        WOMBO Dream cover used for one of my favorite playlists, Starstuff. For my text element, I set the ESP to display a scrolling
+        list of song titles and artists from my playlist, keeping in mind that this would be used for our installation and allow others
+        to engage with the piece by getting a glimpse into the music that inspired it. <br><br>
+
+        I came up with the generative element of this piece from wanting to make unique configurations of sine and cosine waves.
+        When the ESP32 is powered on, a random seed shifts the phase of the sine/cosine wave equations, producing a unique mountain silhouette. 
+        The aurora is drawn column by column using sine waves to vary its height, with dots scrolling upward via modulo equations and fading 
+        from green to pink as they move further from the mountains.
+      </p>
+    </section>
+
+    <!-- Video -->
+    <section class="section">
+      <h2>A Look at the Installation</h2>
+
+      <!-- TODO: Replace VIDEO_ID with the YouTube video ID -->
+      <!-- Example: https://www.youtube.com/watch?v=dQw4w9WgXcQ  -> VIDEO_ID = dQw4w9WgXcQ -->
+      <div class="videoWrap">
+      <iframe
+        src="https://player.vimeo.com/video/1170091740?autoplay=1&loop=1"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+    </section>
+
+    <!-- Images -->
+    <section class="section">
+
+      <div class="photoGrid">
+        <!-- TODO: replace image paths -->
+        <img src="assets/esp2.jpg" alt="ESP image 1">
+        <img src="assets/esp1.jpg" alt="ESP image 2">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Reflection</h2>
+      <p>
+        I encountered some technical challenges while working with both the software and hardware components this project.
+        Since I had never worked with Arduino before, I initially had some trouble setting up the visuals I had designed in my 
+        head. I was stuck for a while on simply getting the scrolling text effect, since I was using a very large message 
+        string that kept scrolling in two rows instead of one. I figured out how to fix this issue without changing my message
+        by setting setTextWrap to false. <br><br>
+
+        For the hardware setup, running 'pio run' in the terminal kept returning "command not found" at first because PlatformIO wasn't 
+        on the system path. This I fixed by opening the project through the PlatformIO extension in VS Code and using its built-in terminal instead.
+        I also realize that I exceeded the hardwware constraints of my project, as my battery ran out of power during the installation. I would
+        caution future developers using this setup to be mindful of the power consumption of the ESP32 and to avoid plugging in the battery except
+        for a quick test before usage in a display.
+      </p>
+    </section>
+
+  </div>
+</body>
+</html>
