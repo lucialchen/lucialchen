@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A Composer's Touch</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #1a2b4a, #7a8ba3, #1a2b4a);
+      color: white;
+      padding: 20px 10px;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 999;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.08'/%3E%3C/svg%3E");
+      mix-blend-mode: overlay;
+    }
+
+    .wrap {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-family: "Pinyon Script", cursive;
+      font-size: clamp(42px, 6vw, 72px);
+      font-weight: 400;
+      margin: 0 0 6px;
+      line-height: 1.1;
+    }
+
+    h2 {
+      font-size: 11px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      margin: 0 0 14px;
+      color: rgba(255,255,255,0.55);
+      font-weight: 500;
+    }
+
+    p {
+      line-height: 1.7;
+      font-weight: 300;
+      color: rgba(255,255,255,0.82);
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .backBtn {
+      display: inline-block;
+      margin-bottom: 30px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      color: white;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background 0.2s ease;
+    }
+
+    .backBtn:hover {
+      background: rgba(255,255,255,0.12);
+    }
+
+    .docLink {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .docLink:hover { color: white; }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .imgWrap {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .cap {
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+    }
+
+    /* ── section spacing ── */
+    .section { margin-top: 60px; }
+
+    /* ── TOP: image left + text right ── */
+    .heroGrid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 10px;
+    }
+
+    .heroImg {
+      height: 300px;
+    }
+
+    .heroText {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding: 6px 0;
+    }
+
+    /* ── 2-col vertical video grid ── */
+    .videoGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .videoItem {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .videoWrapVertical {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+      position: relative;
+      padding-top: 177.78%;
+    }
+
+    .videoWrapVertical iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ── technical: text left + image right ── */
+    .techGrid {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 28px;
+      align-items: start;
+      margin-top: 16px;
+    }
+
+    .techImg {
+      height: 440px;
+    }
+
+    /* ── bottom: 2 images side by side ── */
+    .photoGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 16px;
+    }
+
+    .photoItem {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .squareImg {
+      height: 580px;
+    }
+
+    @media (max-width: 680px) {
+      .heroGrid,
+      .techGrid { grid-template-columns: 1fr; }
+      .heroImg,
+      .techImg { height: 220px; }
+      .videoGrid,
+      .photoGrid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <a href="index.html" class="backBtn">← Back to Menu</a>
+
+    <!-- TITLE -->
+    <h1>A Composer's Touch</h1>
+    <a class="docLink" href="https://github.com/lucialchen/composers-touch" target="_blank" rel="noopener noreferrer">
+      Documentation: GitHub Repository 
+    </a>
+
+    <!-- OVERVIEW: image left, text right -->
+    <section class="section">
+      <h2>Overview</h2>
+      <div class="heroGrid">
+        <div>
+          <div class="imgWrap heroImg">
+            <img src="assets/front_of_device.jpg" alt="Front of device">
+          </div>
+          <p class="cap">Front of device.</p>
+        </div>
+        <div class="heroText">
+          <p>
+            My creative goal was to expand upon my favorite project thus far, that being the Interactive Orchestra 
+            from Mod 3. This piece has inspired the most delight, with many friends exclaiming about how fun it was 
+            to interact with and how it reminded them of the technical aspects of classic childhood games such as 
+            Operation. 
+          </p>
+          <p>
+            I wanted the device to be fully interactive, since version 1 was limited to the sounds that the five 
+            instruments on the decor piece could make. To achieve this goal, I explored wireless musicality by 
+            adding the NimBLE library built for Arduino development. The device is now able to run unplugged from 
+            other technology through a LiPo battery, so that the user may hold it up and "strum" the object almost
+             as its own type of instrument. I also gave the users more creative control through the new recording
+              loop mode that allows them to record a snippet of their voice or a  found sound to layer on top of 
+              the instruments. The new mode is activated through long-pressing the mode switch sensor. Thus, the 
+              device now allows the users to first test out each individual instrument sound, then try layering 
+              them in interesting ways, and finally create truly unique pieces of music by add their own voices. 
+          </p>
+        </div>
+      </div>
+    </section>
+
+   <!-- DEMO VIDEOS -->
+    <section class="section">
+    <h2>Demo Videos</h2>
+    <div class="videoGrid">
+        <div class="videoItem">
+        <div class="videoWrapVertical">
+            <iframe
+            src="https://player.vimeo.com/video/1191781424?badge=0&autopause=0&player_id=0&app_id=58479"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            title="V1 Demo">
+            </iframe>
+        </div>
+        <p class="cap">V1 Mode 0/1 switch demo.</p>
+        </div>
+        <div class="videoItem">
+        <div class="videoWrapVertical">
+            <iframe
+            src="https://player.vimeo.com/video/1191781425?badge=0&autopause=0&player_id=0&app_id=58479"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+            title="A Composer's Touch Demo">
+            </iframe>
+        </div>
+        <p class="cap">Real life demo with friends.</p>
+        </div>
+    </div>
+    </section>
+
+    <section class="section">
+      <h2>Technical Challenges</h2>
+      <div class="techGrid">
+        <p>
+          Something other artists should look out for on this project is tuning the touch threshold to 
+          function according to the incorporation of wireless Bluetooth transmissions. When I was first 
+          able to connect my ESP wirelessly to my laptop using Bluetooth Low Energy (BLE), the copper 
+          touch sensors stopped functioning as normal. The terminal outputs showed no messages being sent 
+          through even though it said the program is connected with the ESP32 via its NimBLE stack. Since 
+          the only big change made was in which power source I used (USB-C to battery), I reasoned that 
+          the change in electric field affected capacitive touch. Thus, I increased the touch threshold 
+          in main.cpp from 25 to 50, and the laptop was able to receive messages from the ESP32 when the 
+          sensors were touched. <br><br>
+          
+          Another technical challenge I encountered was with the battery itself. Initially, the LiPo battery 
+          was seemingly not powering on my ESP32 even after extensive charging. To solve this, I acquired two 
+          other batteries which I charged, then uploaded some test code to display a welcome screen on the 
+          display to check if the battery was powering on the ESP32 when it was plugged in. Since my project 
+          deliberately concealed the ESP32, I previously did not think to use the display to check the state 
+          of my batteries. If other artists pursuing this project do not have access to tools such as a 
+          multimeter to check the voltage of their batteries when making the transition to wireless transmission, 
+          I recommend incorporating test code for the display of the ESP32.
+        </p>
+        <div>
+          <div class="imgWrap techImg">
+            <img src="assets/wire_setup.jpg" alt="Wiring closeup">
+          </div>
+          <p class="cap">Wiring and breadboard closeup.</p>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+</body>
+</html>
